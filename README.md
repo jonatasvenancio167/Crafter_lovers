@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+<h1>Crafter Lovers</h1>
+<p>Bem-vindo ao Crafter Lovers! Este é um aplicativo que permite aos amantes da criação adicionar imagens, textos, estilizações de textos e até mesmo adicionar stickers/emojis, e depois exportar a imagem resultante.</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Como Rodar o Projeto</h2>
+Certifique-se de ter o Node.js instalado em sua máquina. Este projeto foi desenvolvido utilizando o <strong>Node.js versão 20.4.0</strong>. Você pode baixar o Node.js em <strong>nodejs.org</strong>.
+<br>
+<h2>Para instalar as dependências do projeto, execute o seguinte comando no terminal</h2>
 
-## Available Scripts
 
-In the project directory, you can run:
+<strong>npm install:</strong>
+<br>
+Uma vez que as dependências estiverem instaladas, você pode iniciar o projeto usando o seguinte comando:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<strong>npm start:</strong>
+<br>
+Isso iniciará o projeto e abrirá uma janela no seu navegador padrão.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h3>Features</h3>
+<strong>React.js:</strong> Utilizado para construir a interface do usuário dinâmica e responsiva.
+<br>
+<strong>TypeScript:</strong> Proporciona tipagem estática para garantir um código mais robusto e escalável.
+<br>
+<strong>Node.js:</strong> Utilizado para a construção do servidor e manipulação de arquivos.
+<strong>React-color:</strong> Uma biblioteca para seleção de cores.
+<br>
+<strong>Emoji-picker-react:</strong> Uma biblioteca para selecionar emojis.
+<br>
+<strong>Styled-components:</strong> Utilizado para estilização dos componentes de forma mais dinâmica e eficiente.
+<br>
+<h2>Descrição Detalhada</h2>
+Crafter Lovers é uma aplicação que surgiu da necessidade de proporcionar uma experiência de edição de imagens e texto mais dinâmica e divertida para os amantes da criação. Com ele, os usuários podem facilmente adicionar imagens, textos, estilizações de texto e stickers/emojis de forma intuitiva. Com a capacidade de exportar a imagem resultante, os usuários podem compartilhar suas criações facilmente em diversas plataformas.
 
-### `npm test`
+Este projeto foi desenvolvido com amor e pensando na melhor experiência do usuário. Esperamos que você aproveite usando e personalizando-o para atender às suas necessidades.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Espero que goste do resultado! Se precisar de mais alguma coisa, estou à disposição.
