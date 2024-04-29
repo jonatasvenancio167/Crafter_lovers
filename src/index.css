@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'DancingScript';
+  src: url('fonts/DancingScript-VariableFont_wght.ttf') format('truetype')
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Beautiful';
+  src: url('fonts/Beautiful.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Courier';
+  src: url('fonts/courier-bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Vegan';
+  src: url('fonts/Vegan.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Comics';
+  src: url('fonts/comics.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Cosmopolitan Script';
+  src: url('fonts/CosmopolitanScriptRegular.otf') format('truetype')
+}
+
+
+body {
+  background-color: '#C0C0C0';
 }

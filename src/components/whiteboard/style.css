@@ -1,0 +1,38 @@
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.blank-screen {
+  height: 90%;
+  position: fixed;
+  top: 5%;
+  background-color: white;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.droppable-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .blank-screen {
+    width: 80%;
+    max-width: 827px; 
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .blank-screen {
+    width: 90%; 
+    max-width: none; 
+    margin: 0 auto;
+  }
+}

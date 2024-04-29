@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyles } from './styles/global'
+import { AppRoutes } from './routes';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import './index.css'
+import { SideBarProvider } from './hooks/useSidebarProvider';
 
-function App() {
+const App: React.FC = () => {
+
+  const queryClient = new QueryClient()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SideBarProvider>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyles/>
+        <AppRoutes/>
+      </QueryClientProvider>
+    </SideBarProvider>
+
   );
 }
 
