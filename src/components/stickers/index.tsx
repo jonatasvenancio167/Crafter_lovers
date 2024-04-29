@@ -49,9 +49,9 @@ const Stickers = ({ handleSetEmoji }: StickersProps) => {
     <>
       <div className="ml-10 mt-4 justify-center">
         <h3>Stickers</h3>
-        <div className="mt-2 justify-center mr-20 mb-20">
+        <div className="mt-2 justify-center mr-20 mb-20 w-full">
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-80"
+            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-full"
             onClick={showEmoji}
           >
             Adicionar Emoji

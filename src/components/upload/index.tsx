@@ -26,7 +26,7 @@ const Upload = ({ onFileChange }: UploadProps) => {
           />
           <label
             htmlFor="fileInput"
-            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-80"
+            className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-full"
           >
             Procurar
           </label>

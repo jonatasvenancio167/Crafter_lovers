@@ -46,7 +46,7 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
             <div className="ml-10 mt-5">
               <h3>Upload de imagem</h3>
             </div>
-            <div className="mt-2 justify-center ml-10 mr-20">
+            <div className="mt-2 justify-center ml-10 mr-20 w-full">
               <Upload onFileChange={handleImagechange}/>
             </div>
           </div>
@@ -54,7 +54,7 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
           <div className="relative left-5">
             <div>
               <button 
-                className="px-5 py-2 bg-red-500 text-white rounded-md cursor-pointer hover:bg-red-600 text-center ml-5 w-96"
+                className="px-5 py-2 bg-red-500 text-white rounded-md cursor-pointer hover:bg-red-600 text-center ml-5 w-full"
                 onClick={exportWhiteboard}
               >
                 Exportar
