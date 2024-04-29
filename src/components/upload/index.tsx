@@ -16,7 +16,7 @@ const Upload = ({ onFileChange }: UploadProps) => {
 
   return(
     <>
-      <div className="flex justify-between">
+      <div>
         <div className="flex items-center w-full">
           <input
             id="fileInput"

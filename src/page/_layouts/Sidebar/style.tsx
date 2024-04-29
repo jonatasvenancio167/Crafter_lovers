@@ -10,12 +10,12 @@ export const Container = styled.div<ContainerProps>`
   height: 100%;
   top: 0px;
   left: 0px;
-  width: 500px;
+  width: 300px;
   left: ${props => props.sidebar ? '0' : '-100%'};
   animation: showSidebar .4s;
   overflow-y: auto;
 
-   > svg {
+  > svg {
     position: fixed;
     color: white;
     width: 30px;
@@ -35,6 +35,14 @@ export const Container = styled.div<ContainerProps>`
       width: 300px;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 250px;
+  }
+
+  @media (max-width: 576px) {
+    width: 200px;
+  }
 `;
 
 export const Content = styled.div`
@@ -44,4 +52,4 @@ export const Content = styled.div`
 export const Emojis = styled.div`
   display: flex;
   flex-direction: column;
-`; 
+`;

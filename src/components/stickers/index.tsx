@@ -49,7 +49,7 @@ const Stickers = ({ handleSetEmoji }: StickersProps) => {
     <>
       <div className="ml-10 mt-4 justify-center">
         <h3>Stickers</h3>
-        <div className="mt-2 justify-center mr-20 mb-20 w-full">
+        <div className="mt-2 justify-center mr-20 mb-3 w-full">
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-full"
             onClick={showEmoji}
@@ -57,7 +57,7 @@ const Stickers = ({ handleSetEmoji }: StickersProps) => {
             Adicionar Emoji
           </button>
         </div>
-        <div className="flex items-center mt-4">
+        <div className="flex items-center mt-4 mb-3">
           <label className="mr-2">Rotação:</label>
           <input
             type="range"
@@ -70,14 +70,14 @@ const Stickers = ({ handleSetEmoji }: StickersProps) => {
           />
           <span>{rotation}°</span>
         </div>
-        <div className="flex items-center mt-4">
-          <label htmlFor="selectEmoji" className="mr-2">
-            Selecione um Emoji:
-          </label>
+        <label htmlFor="selectEmoji" className="mr-2">
+          Selecione um Emoji:
+        </label>
+        <div className="flex items-center mb-5">
           <select
             id="selectEmoji"
             onChange={handleSelectChange}
-            className="mr-2"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white-700 border-none dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
           >
             <option value="">Selecione um emoji</option>
             {emojis.map((emoji) => (

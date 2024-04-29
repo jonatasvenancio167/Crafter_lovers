@@ -36,7 +36,7 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
   return (
     <Container sidebar={active}>
       <FaTimes onClick={closeSidebar}/>
-      <Content className="min-w-[200px] w-full flex-col items-start justify-start">
+      <Content className="w-full flex-col items-start justify-start">
         <div>
           <div className="ml-10">
             <h3>Selecione a fonte</h3>
@@ -51,15 +51,13 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
             </div>
           </div>
           <Stickers handleSetEmoji={handleSetEmoji}/>
-          <div className="relative left-5">
-            <div>
-              <button 
-                className="px-5 py-2 bg-red-500 text-white rounded-md cursor-pointer hover:bg-red-600 text-center ml-5 w-full"
-                onClick={exportWhiteboard}
-              >
-                Exportar
-              </button>
-            </div>
+          <div className="relative left-5 justify-center">
+            <button 
+              className="px-4 py-2 bg-red-500 text-white rounded-md cursor-pointer hover:bg-red-600 text-center ml-5 w-full"
+              onClick={exportWhiteboard}
+            >
+              Exportar
+            </button>
           </div>
         </div>
       </Content>

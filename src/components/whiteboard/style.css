@@ -1,14 +1,17 @@
 .centered-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 40rem;
+  left: 25rem;
+  bottom: 6.2rem;
 }
 
 .blank-screen {
-  height: 90%;
-  position: fixed;
-  top: 5%;
+  height: 100vh;
+  position: relative;
   background-color: white;
   overflow: hidden;
   border: 1px solid black;
