@@ -10,3 +10,11 @@ export interface TextItem {
   fontSize: number;
   color: ColorResult
 }
+
+export interface EmojiProps {
+  id: number;
+  url: string;
+  rotation: number;
+  positionX: number;
+  positionY: number;
+}

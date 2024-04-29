@@ -1,12 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { EmojiProps } from "../../interface/TextItem";
+import { useSidebarContext } from "../../hooks/useSidebarProvider";
 
 interface ImportEmojiComponentProps {
-  emojis: string
-}
-
-interface Position {
-  x: number
-  y: number
+  emojis: Array<EmojiProps>
 }
 
 interface Size {
@@ -14,76 +11,73 @@ interface Size {
   height: number
 }
 
+interface Position {
+  x: number;
+  y: number;
+}
+
 const ImportEmojiComponent = ({ emojis }: ImportEmojiComponentProps) => {
-  const [positionEmoji, setPositionEmoji] = useState<Position>({ x: 50, y: 50 });
-  const [size, setSize] = useState<Size>({ width: 300, height: 300 });
-  const resizing = useRef<boolean>(false);
-  const dragPos = useRef<Position>({ x: 0, y: 0 });
-  const dragging = useRef<boolean>(false);
+  const [size, setSize] = useState<Size>({ width: 100, height: 100 });
+  const resizing = useRef<boolean[]>(emojis.map(() => false));
+  const [draggingEmojiId, setDraggingEmojiId] = useState<number | null>(null);
+  const [emojisUrl, setEmojisUrl] = useState<EmojiProps[]>(emojis);
+  const [dragOffset, setDragOffset] = useState<Position | null>(null);
+
+  const { handleSetEmoji } = useSidebarContext()
+
+
+  useEffect(() => {
+    setEmojisUrl(emojis)
+  }, [emojis])
   
-  const handleMouseDown = (e: any) => {
-    const { clientX, clientY } = e;
-    if (e.target.className === 'resize-handle') {
-      resizing.current = true;
-      dragPos.current = {
-        x: clientX - size.width,
-        y: clientY - size.height
-      };
-    } else {
-      dragging.current = true;
-      dragPos.current = {
-        x: clientX - positionEmoji.x,
-        y: clientY - positionEmoji.y
-      };
-    }
-    e.preventDefault();
+  const handleMouseDown = (event: React.MouseEvent<HTMLParagraphElement, MouseEvent>, id: number) => {
+    setDraggingEmojiId(id);
+    setDragOffset({ x: event.clientX, y: event.clientY });
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY } = e;
-    if (resizing.current) {
-      setSize({ 
-        width: clientX - dragPos.current.x, 
-        height: clientY - dragPos.current.y 
-      });
-    } else if (dragging.current && e.buttons === 1) { 
-      setPositionEmoji({
-        x: clientX - dragPos.current.x,
-        y: clientY - dragPos.current.y
-      });
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (draggingEmojiId !== null && dragOffset !== null) {
+      const newTexts = emojis.map(emoji =>
+        emoji.id === draggingEmojiId
+          ? { ...emoji, positionX: emoji.positionX + event.clientX - dragOffset.x, positionY: emoji.positionY + event.clientY - dragOffset.y }
+          : emoji
+      );
+      setEmojisUrl(newTexts);
+      handleSetEmoji(newTexts)
+      setDragOffset({ x: event.clientX, y: event.clientY });
     }
   };
 
   const handleMouseUp = () => {
-    dragging.current = false;
-    resizing.current = false;
+    setDraggingEmojiId(null);
+    setDragOffset(null);
   };
 
   return (
-    <article
-      style={{
-        position: 'absolute',
-        cursor: dragging ? 'grabbing' : 'grab',
-        left: positionEmoji.x,
-        top: positionEmoji.y,
-        width: size.width, 
-        height: size.height,
-      }}
-      
-      onMouseMove={handleMouseMove} 
-      onMouseUp={handleMouseUp}
-    >
-      {emojis && (
-        <>
+    <>
+      {emojis.map((emoji, index) => (
+        <article
+          key={index}
+          style={{
+            position: 'absolute',
+            cursor: draggingEmojiId === emoji.id ? 'grabbing' : 'grab',
+            left: emoji.positionX,
+            top: emoji.positionY,
+            width: size.width, 
+            height: size.height,
+          }}
+          onMouseMove={handleMouseMove} 
+          onMouseUp={handleMouseUp}
+        >
           <img
-            src={emojis}
+            onMouseDown={(e) => handleMouseDown(e, emoji.id)} 
+            src={emoji.url}
             alt="stickers"
-            onMouseDown={handleMouseDown}
           />
-        </>
-      )}
-    </article>
-  )
+        </article>
+      ))}
+    </>
+  );
 }
 
 export { ImportEmojiComponent }

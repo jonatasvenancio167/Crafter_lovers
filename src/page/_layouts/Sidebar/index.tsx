@@ -1,10 +1,9 @@
 import { FaTimes } from "react-icons/fa"
 import { Container, Content } from "./style"
-import { useState } from "react"
 import { Upload } from "../../../components/upload"
-import EmojiPicker from "emoji-picker-react"
 import { useSidebarContext } from "../../../hooks/useSidebarProvider"
 import { SelectFont } from "../../../components/selectFont"
+import { Stickers } from "../../../components/stickers"
 
 interface SidebarProps {
   active: boolean
@@ -20,8 +19,6 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
     handleSetExportWhiteboard,
   } = useSidebarContext()
 
-  const [addEmoji, setAddEmoji] = useState<boolean>(false)
-
   const handleImagechange = (file: File) => {
     if (handleSendImage) {
       handleSendImage(file)
@@ -30,20 +27,6 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
   
   const closeSidebar = () => {
     if(handleSetActive) handleSetActive(false)
-  }
-
-  const getEmoji = (e: { imageUrl: string }) => {
-    const emojis = []
-    emojis.push(e.imageUrl)
-    if(handleSetEmoji) handleSetEmoji(e.imageUrl)
-  }
-
-  const showEmoji = () => {
-    if(addEmoji) {
-      return setAddEmoji(false)
-    } else {
-      return setAddEmoji(true)
-    }
   }
 
   const exportWhiteboard = () => {
@@ -67,22 +50,7 @@ const Sidebar = ({ active, handleSetActive }: SidebarProps) => {
               <Upload onFileChange={handleImagechange}/>
             </div>
           </div>
-          <div className='ml-10 mt-4 justify-center'>
-            <h3>Stickers</h3>
-            <div className="mt-2 justify-center mr-20 mb-20">
-              <button 
-                className="px-4 py-2 bg-blue-500 text-white rounded-md cursor-pointer hover:bg-blue-600 text-center w-80"
-                onClick={() => {showEmoji()}}
-              >
-                Adicionar Emoji
-              </button>
-            </div>
-            <div className="fixed right-10 bottom-10">
-              {addEmoji && (
-                <EmojiPicker onEmojiClick={(e) => getEmoji(e)}/>
-              )}
-            </div>
-          </div>
+          <Stickers handleSetEmoji={handleSetEmoji}/>
           <div className="relative left-5">
             <div>
               <button 

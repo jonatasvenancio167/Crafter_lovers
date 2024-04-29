@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { createContext, useState } from "react";
-import { TextItem } from "../interface/TextItem";
+import { EmojiProps, TextItem } from "../interface/TextItem";
 
 interface Props {
   children: JSX.Element | JSX.Element;
@@ -12,7 +12,7 @@ interface SidebarContextState {
   handleSetTextArea: (texts: TextItem[]) => void;
   handleSetFontSize: (fontsize: number) => void;
   handleSetFontFamily?: (font: string) => void;
-  handleSetEmoji?: (emoji: string) => void;
+  handleSetEmoji: (emojis: Array<EmojiProps>) => void;
   handleSetExportWhiteboard?: (exportWhiteboard: boolean) => void;
   handleSetColor: (color: string) => void;
   handleSetBackground: (background: boolean) => void
@@ -21,7 +21,7 @@ interface SidebarContextState {
   fontFamily: string;
   fontSize: any;
   image: any;
-  urlEmoji: string;
+  urlEmoji: Array<EmojiProps>;
   exportedImageData: boolean
   color: string
   background: boolean
@@ -45,7 +45,7 @@ const SideBarProvider = ({ children }: Props) => {
   const [fontFamily, setFontFamily] = useState<string>("");
   const [fontSize, setFontSize] = useState<number>(12);
   const [image, setImage] = useState<any>();
-  const [urlEmoji, setUrlEmoji] = useState<string>('')
+  const [urlEmoji, setUrlEmoji] = useState<Array<EmojiProps>>([])
   const [exportedImageData, setExportedImageData] = useState<boolean>(false);
   const [color, setColor] = useState<string>('#000')
   const [background, setBackground] = useState<boolean>(false)
@@ -70,7 +70,7 @@ const SideBarProvider = ({ children }: Props) => {
     setFontFamily(value)
   };
 
-  const handleSetEmoji = (value: string) => {
+  const handleSetEmoji = (value: Array<EmojiProps>) => {
     setUrlEmoji(value)
   }
 
