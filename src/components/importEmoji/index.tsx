@@ -1,14 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { EmojiProps } from "../../interface/TextItem";
 import { useSidebarContext } from "../../hooks/useSidebarProvider";
 
 interface ImportEmojiComponentProps {
   emojis: Array<EmojiProps>
-}
-
-interface Size {
-  width: number
-  height: number
 }
 
 interface Position {
@@ -17,8 +12,6 @@ interface Position {
 }
 
 const ImportEmojiComponent = ({ emojis }: ImportEmojiComponentProps) => {
-  const [size, setSize] = useState<Size>({ width: 100, height: 100 });
-  const resizing = useRef<boolean[]>(emojis.map(() => false));
   const [draggingEmojiId, setDraggingEmojiId] = useState<number | null>(null);
   const [emojisUrl, setEmojisUrl] = useState<EmojiProps[]>(emojis);
   const [dragOffset, setDragOffset] = useState<Position | null>(null);
@@ -27,7 +20,8 @@ const ImportEmojiComponent = ({ emojis }: ImportEmojiComponentProps) => {
 
 
   useEffect(() => {
-    setEmojisUrl(emojis)
+    setEmojisUrl(
+      emojis)
   }, [emojis])
   
   const handleMouseDown = (event: React.MouseEvent<HTMLParagraphElement, MouseEvent>, id: number) => {
@@ -55,7 +49,7 @@ const ImportEmojiComponent = ({ emojis }: ImportEmojiComponentProps) => {
 
   return (
     <>
-      {emojis.map((emoji, index) => (
+      {emojisUrl.map((emoji, index) => (
         <article
           key={index}
           style={{
@@ -63,8 +57,6 @@ const ImportEmojiComponent = ({ emojis }: ImportEmojiComponentProps) => {
             cursor: draggingEmojiId === emoji.id ? 'grabbing' : 'grab',
             left: emoji.positionX,
             top: emoji.positionY,
-            width: size.width, 
-            height: size.height,
           }}
           onMouseMove={handleMouseMove} 
           onMouseUp={handleMouseUp}
