@@ -102,7 +102,10 @@ const Stickers = ({ handleSetEmoji }: StickersProps) => {
             </div>
           )}
         </div>
-        <div className="fixed right-10 bottom-10">
+        <div 
+          className="fixed right-32"
+          style={{ width: '14rem', height: '10rem', bottom: '11rem'}}
+        >
           {addEmoji && <EmojiPicker onEmojiClick={(e) => getEmoji(e.imageUrl)} />}
         </div>
       </div>

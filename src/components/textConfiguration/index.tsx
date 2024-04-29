@@ -200,7 +200,7 @@ const TextConfiguration = ({ handleSetTexts, handleSetFontFamily }: TextConfigur
           />
         </div>
       </div>
-      <div className="fixed right-10 top-10">
+      <div className="fixed right-32 top-5">
         { showColorText && (
           <ChromePicker color={color.hex} onChange={uptatedColor => handleChangeComplete(uptatedColor)} className="relative"/>
         )}
